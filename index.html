@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Password Generator</title>
+<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="bootstrap/styles.css">
+</head>
+<body>
+    
+<div class="jumboContainer">
+<div class="container">
+    <div class="jumbotron">
+        <!-- <div class="titleContainer">
+            <h1>Password Generator</h1>
+        </div> -->
+        <div class="buttonContainer">
+            <p><button href=""  id="generateButton" class="btn btn-success btn-lg">Generate Password</button></p>
+        </div>
+    </div>
+</div>
+</div>
+
+<script>
+    window.document.getElementById("generateButton").addEventListener("click", generatePassword);
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min) + min); 
+    }
+    function generatePassword() {
+        // var specialChar;
+        // var number;
+        // var upperCase;
+        // var lowerCase;
+        var c;
+        var character;
+        var pass = "";
+        for (var i = 0; i < 20; i++) {
+            var ran = randomNumber(1, 5);
+            console.log(ran);
+            switch(ran) {
+                case 1:
+                    c = randomNumber(33, 48);
+                    character = String.fromCharCode(c);
+                    break;
+                case 2:
+                    c = randomNumber(48, 58);
+                    character = String.fromCharCode(c);
+                    break;
+                case 3:
+                    c = randomNumber(65, 91);
+                    character = String.fromCharCode(c);
+                    break;
+                case 4:
+                    c = randomNumber(97, 123);
+                    character = String.fromCharCode(c);
+                    break;
+            }
+            // console.log(c);
+            // console.log(character);
+            pass += character;
+        }
+        // console.log(pass);
+        alert("Random Password: " + pass);
+        return;
+    }
+</script>
+</body>
+</html>
